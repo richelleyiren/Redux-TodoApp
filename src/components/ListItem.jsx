@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import styled, { css } from 'styled-components'
 import { connect } from 'react-redux'
 import { createTodo, deleteTodo, updateTodo } from '../store/actions/actions-index'
-
+import { AiTwotoneDelete } from "react-icons/ai";
+import{MdOutlineDoneOutline} from 'react-icons/md'
 
 //styled component
 const Wrapper = styled.div`
@@ -25,26 +26,27 @@ const Wrapper = styled.div`
   
 
 const Button = styled.button`
-  padding: 11px;
   border: none;
   border-radius: 8px;
   outline: none;
   cursor: pointer;
-  margin-left:1em;
+  margin-left: 1em;
+  padding: 11px;
+
   ${(props) =>
     props.completed &&
     css`
       background-color: green;
       color: white;
+      font-size: 1em;
     `}
-
-    
 
   ${(props) =>
     props.delete &&
     css`
       background-color: red;
       color: white;
+      font-size: 1em;
     `}
 `;
 
@@ -57,20 +59,19 @@ const ListItem = ({ task, deleteTodo, updateTodo }) => {
     deleteTodo(task.text)
     
   }
+ 
    
   return (
     <Wrapper>
 
-      <h3>{task.text}</h3>
+      
+      {task.isCompleted ? <h3 style={{ textDecoration: "line-through", color:'grey'}}> {task.text}</h3> : <h3>{task.text}</h3>}
       <div>
 
-        {task.isCompleted ? <Button completed onClick={() => updateTodo(task.text)} > Done</Button> : <Button completed onClick={() => updateTodo(task.text)}> Pending</Button>}
+        {task.isCompleted ? <Button completed onClick={() => updateTodo(task.text)} > <MdOutlineDoneOutline/></Button> : <Button completed onClick={() => updateTodo(task.text)}> Pending</Button>}
         
-        {/* <Button completed onClick={updFunc}>
-          {task && !task.isCompleted === true ? "pending" : "done"}
-        
-        </Button> */}
-        <Button delete onClick={delFunc}>Delete</Button>
+       
+        <Button delete onClick={delFunc}><AiTwotoneDelete/></Button>
 
       </div>
 

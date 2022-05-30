@@ -3,10 +3,23 @@
     padding: 0;
     box-sizing: border-box;
 }
+h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em;
+    color: cornflowerblue;
+    font-size: 2em;
+}
+span{
+    color: crimson;
+    font-size: 1.5em;
+    margin-top: 0.5em;
+}
 .main-card{
     display: flex;
     justify-content: center;
-    margin-top: 8em;
+    margin-top: 3em;
     
 
     input{
