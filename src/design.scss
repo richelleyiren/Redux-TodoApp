@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-card{
+    display: flex;
+    justify-content: center;
+    margin-top: 8em;
+    
+
+    input{
+        padding: 1em;
+        font-size: 1em;
+        width: 30%;
+        border-radius: 8px;
+        border: solid black 1px;
+        margin-right:1em ;
+        background-color: transparent;
+        
+       
+
+        &:focus{
+            outline: none;
+        }
+    }
+
+    button{
+        width: 10%;
+        font-size: 1em;
+        cursor: pointer;
+        padding: 1em;
+        background-color: palevioletred;
+        border: none;
+        border-radius: 8px;
+    }
+}
